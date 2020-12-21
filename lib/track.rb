@@ -6,17 +6,18 @@ class Track
         @afternoon = afternoon
     end
 
-    def addTalk(talk,is_morning)
+    def add_talk_to_session(talk,session)
+        talk.start = session.start_time.strftime("%I:%M %p")
+        session.talks << talk 
+        session.remaining_time -= talk.duration
+        session.start_time += talk.duration * 60
+    end
+
+    def add_talk(talk,is_morning)
         if is_morning
-            talk.start = morning.start_time.strftime("%I:%M %p")
-            @morning.talks << talk 
-            @morning.remaining_time -= talk.duration
-            morning.start_time += talk.duration * 60
+           add_talk_to_session(talk,morning)
        else
-            talk.start = afternoon.start_time.strftime("%I:%M %p")
-            @afternoon.talks << talk 
-            @afternoon.remaining_time -= talk.duration
-            afternoon.start_time += talk.duration * 60
+           add_talk_to_session(talk,afternoon)
        end
     end
     

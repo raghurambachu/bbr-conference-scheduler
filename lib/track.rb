@@ -1,6 +1,6 @@
 class Track
     attr_reader :title,:morning,:afternoon
-    def initialize(title,morning,afternoon)
+    def initialize(title,morning = MorningSession.new(Time.local(2020 , 12, 20, 9),Time.local(2020, 12, 20, 12),3),afternoon = AfternoonSession.new(Time.local(2020, 12, 20, 13),Time.local(2020, 12, 20, 17),4))
         @title = title
         @morning = morning
         @afternoon = afternoon

@@ -6,6 +6,13 @@ class Track
         @afternoon = afternoon
     end
 
+    def is_morning_session_full?(talk_duration)
+        morning.full?(talk_duration)
+    end
+    def is_afternoon_session_full?(talk_duration)
+        afternoon.full?(talk_duration)
+    end
+
     def add_talk_to_session(talk,session)
         talk.start = session.start_time.strftime("%I:%M %p")
         session.talks << talk 

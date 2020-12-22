@@ -9,9 +9,9 @@ class ConferenceScheduler
     end
 
     def add_talk_to_track(track,talk)
-        if !track.morning.full?(talk.duration)
+        if !track.is_morning_session_full?(talk.duration)
             track.add_talk(talk,true)
-        elsif !track.afternoon.full?(talk.duration)
+        elsif !track.is_afternoon_session_full?(talk.duration)
             track.add_talk(talk,false)
         else
             @not_scheduleable << talk

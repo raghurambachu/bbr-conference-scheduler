@@ -5,8 +5,8 @@ require_relative("morning_session")
 require_relative("afternoon_session")
 require_relative("conference_scheduler")
 
-track1 = Track.new("1st Track",MorningSession.new(Time.local(2020 , 12, 20, 9),Time.local(2020, 12, 20, 12),3),AfternoonSession.new(Time.local(2020, 12, 20, 13),Time.local(2020, 12, 20, 17),4))
-track2 = Track.new("2nd Track",MorningSession.new(Time.local(2020 , 12, 20, 9),Time.local(2020, 12, 20, 12),3),AfternoonSession.new(Time.local(2020, 12, 20, 13),Time.local(2020, 12, 20, 17),4))
+track1 = Track.new("1st Track")
+track2 = Track.new("2nd Track")
 
 scheduler1 = ConferenceScheduler.new(track1,track2)
 
